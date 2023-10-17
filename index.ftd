@@ -16,6 +16,11 @@ step-lists: $step-lists
 -- multistep-three:
 step-lists-three: $step-lists-three
 
+-- ds.h1: Component 4
+
+-- multistep-four:
+step-lists-four: $step-lists-four
+
 -- end: ds.page
 
 
@@ -458,6 +463,171 @@ border-radius.px: 300
 
 
 
+
+
+-- component multistep-four:
+step-list-four list step-lists-four:
+
+-- ftd.row:
+width: fill-container
+align-content: center
+
+-- ftd.row:
+height: auto
+border-left-width.px: 1
+border-color: $inherited.colors.border-strong
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 64
+align-content: center
+
+-- step-details-four: $obj.title
+$loop$: $multistep-four.step-lists-four as $obj
+image: $obj.image
+number: $obj.number
+
+$obj.body
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: multistep-four
+
+
+
+
+
+
+
+
+
+
+-- component step-details-four:
+optional caption title:
+optional body body:
+ftd.image-src image:
+optional string number:
+boolean $hover: false
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.desktop:
+
+-- ftd.row:
+width.fixed.px: 1042
+spacing.fixed.px: 12
+$on-mouse-enter$: $ftd.set-bool($a = $step-details-four.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $step-details-four.hover, v = false)
+
+-- ftd.column:
+height.fixed.px: 40
+width.fixed.px: 60
+border-radius.percent: 100
+border-width.px: 1
+border-color: $inherited.colors.accent.primary
+background.solid if { step-details-four.hover }: $inherited.colors.accent.primary
+margin-left.px: -22
+align-content: center
+background.solid: #ffffff
+
+-- ftd.text: $step-details-four.number
+role: $inherited.types.copy-large
+color: $inherited.colors.text-strong
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 24
+
+-- ftd.text: $step-details-four.title
+role: $inherited.types.heading-small
+color: $inherited.colors.info.text
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$step-details-four.body
+
+-- end: ftd.column
+
+-- ftd.image:
+src: $step-details-four.image
+width.fixed.px: 350
+height.fixed.px: 226
+border-radius.px: 30
+
+-- end: ftd.row
+
+-- end: ftd.desktop
+
+-- ftd.mobile:
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 12
+$on-mouse-enter$: $ftd.set-bool($a = $step-details-four.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $step-details-four.hover, v = false)
+
+-- ftd.column:
+height.fixed.px: 40
+width.fixed.px: 46
+border-radius.percent: 100
+border-width.px: 1
+border-color: $inherited.colors.accent.primary
+background.solid if { step-details-four.hover }: $inherited.colors.accent.primary
+margin-left.px: -22
+align-content: center
+background.solid: #ffffff
+
+-- ftd.text: $step-details-four.number
+role: $inherited.types.copy-large
+color: $inherited.colors.text-strong
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 24
+
+-- ftd.text: $step-details-four.title
+role: $inherited.types.heading-small
+color: $inherited.colors.info.text
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$step-details-four.body
+
+-- ftd.image:
+src: $step-details-four.image
+width: fill-container
+border-radius.px: 30
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.mobile
+
+-- end: ftd.column
+
+-- end: step-details-four
+
+
+
+
+
+
+
+
 -- record number:
 optional caption title:
 optional body body:
@@ -569,3 +739,46 @@ creative, so take note: Sweet supports image, audio and video media assets.
 Make your NFT drop interesting, engaging and fun.
 
 -- end: step-lists-three
+
+
+
+
+
+
+
+
+
+
+-- record step-list-four:
+optional caption title:
+optional body body:
+ftd.image-src image:
+optional string number:
+
+-- step-list-four list step-lists-four:
+
+-- step-list-four: Lorem
+image: $assets.files.assets.card5.png
+number: 1
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- step-list-four: Lorem
+image: $assets.files.assets.card5.png
+number: 2
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- step-list-four: Lorem
+image: $assets.files.assets.card5.png
+number: 3
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- end: step-lists-four
