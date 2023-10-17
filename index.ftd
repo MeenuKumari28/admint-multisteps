@@ -1,40 +1,571 @@
--- ds.page: Welcome to doc-site
+-- ds.page:
+full-width: true
 
+-- ds.h1: Component 1
 
-⚡️ `doc-site` will help you create a beautiful documentation site in no time.
+-- multistep-one:
+numbers: $numbers
 
-It provides out-of-the-box documentation features that can be used to create any
-kind of site(personal website, blog, etc).
+-- ds.h1: Component 2
 
-[Click here](https://fastn-community.github.io/doc-site/) to read doc-site
-documentation.
+-- multistep-two:
+step-lists: $step-lists
 
--- ds.h3: 🚀 Fast Track 
+-- ds.h1: Component 3
 
-Create your first fastn [web-site](https://fastn.com/expander/hello-world/-/build/) 
-project in just 5 minutes!
-
--- ds.h3: 🌟 Whats next?
-
-Create your first page. 
-[Click here to know more](https://fastn-community.github.io/doc-site/components/page/).
-
--- ds.h3: 👀 Want to learn more?
-
-Feel free to check [our expander course](https://fastn.com/expander/) or jump
-into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
-
-
--- ds.h3: 🎯 Used by?
-
-Our all documentation sites uses this `doc-site` theme.
-
-- [fastn.com](https://fastn.com/home/)
-- [FifthTry.com](https://www.fifthtry.com/)
-
--- ds.h2: Learn fastn and become a pro?
-
-You are one click away, just check [our documentation](https://fastn.com/) and 
-dont forget to jump into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
+-- multistep-three:
+step-lists-three: $step-lists-three
 
 -- end: ds.page
+
+
+
+
+
+
+
+
+
+
+-- component multistep-one:
+number list numbers:
+
+-- ftd.column:
+width: fill-container
+align-content: center
+padding-horizontal.px if { ftd.device == "mobile" }: 20
+
+-- ftd.row:
+width: fill-container
+wrap: true
+margin-top.px: 30
+align-content: center
+spacing.fixed.px: 30
+
+-- step-details: $obj.title
+$loop$: $multistep-one.numbers as $obj
+image: $obj.image
+number: $obj.number
+
+$obj.body
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: multistep-one
+
+
+
+
+
+
+
+
+
+
+-- component step-details:
+optional caption title:
+optional body body:
+ftd.image-src image:
+optional string number:
+boolean $hover: false
+
+-- ftd.column:
+$on-mouse-enter$: $ftd.set-bool($a = $step-details.hover, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $step-details.hover, v = false)
+width.fixed.px: 380
+min-height.fixed.px: 390
+padding-vertical.px: 30
+padding-horizontal.px: 18
+background.solid if { step-details.hover }: $inherited.colors.accent.primary
+border-width.px: 4
+border-radius.px: 20
+border-color: $inherited.colors.accent.primary
+
+-- ftd.image:
+src: $step-details.image
+width.fixed.px: 344
+height.fixed.px: 273
+border-radius.px: 20
+
+-- ftd.text: $step-details.title
+if: {step-details.title != NULL}
+role: $inherited.types.copy-large
+role if { ftd.device == "mobile" }: $inherited.types.copy-regular
+color: $inherited.colors.text-strong
+color if { step-details.hover }: $inherited.colors.info.text
+style: bold
+margin-top.px: 22
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+margin-top.px: 36
+padding-bottom.px: 36
+
+$step-details.body
+
+-- ftd.column:
+anchor: parent
+width: fill-container
+bottom.px: -21
+bottom.px if { ftd.device == "mobile" }: -11
+right.px: 0
+align-content: right
+
+-- ftd.text: $step-details.number
+role: $inherited.types.heading-hero
+color: $inherited.colors.text
+opacity: 0.1
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: step-details
+
+
+
+
+
+
+
+
+
+
+
+
+-- component multistep-two:
+step-list list step-lists:
+
+-- ftd.column:
+width: fill-container
+align-content: center
+padding-horizontal.px if { ftd.device == "mobile" }: 20
+
+-- ftd.row:
+width: fill-container
+wrap: true
+margin-top.px: 30
+align-content: center
+spacing.fixed.px: 30
+
+-- step-details-two: $obj.title
+$loop$: $multistep-two.step-lists as $obj
+image: $obj.image
+number: $obj.number
+
+$obj.body
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: multistep-two
+
+
+
+
+
+
+
+
+
+
+-- component step-details-two:
+optional caption title:
+optional body body:
+ftd.image-src image:
+optional string number:
+boolean $hover: false
+
+-- ftd.column:
+width: fill-container
+align-content: center
+
+-- ftd.desktop:
+
+-- ftd.row:
+width.fixed.px: 1050
+spacing.fixed.px: 108
+
+-- ftd.image:
+src: $step-details-two.image
+width.fixed.px: 415
+height.fixed.px: 415
+
+-- ftd.column:
+width.fixed.px: 537
+
+-- ftd.text: $step-details-two.number
+role: $inherited.types.heading-hero
+color: $inherited.colors.text
+opacity: 0.1
+
+-- ftd.column:
+spacing.fixed.px: 64
+align-content: center
+margin-top.px: -28
+
+-- ftd.text: $step-details-two.title
+if: {step-details-two.title != NULL}
+role: $inherited.types.heading-large
+color: $inherited.colors.text-strong
+style: bold
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$step-details-two.body
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.desktop
+
+-- ftd.mobile:
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.image:
+src: $step-details-two.image
+width: fill-container
+height.fixed.px: 324
+
+-- ftd.text: $step-details-two.number
+role: $inherited.types.heading-hero
+color: $inherited.colors.text
+opacity: 0.1
+
+-- ftd.column:
+spacing.fixed.px: 44
+align-content: center
+margin-top.px: -28
+
+-- ftd.text: $step-details-two.title
+if: {step-details-two.title != NULL}
+role: $inherited.types.heading-large
+color: $inherited.colors.text-strong
+style: bold
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$step-details-two.body
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.mobile
+
+-- end: ftd.column
+
+-- end: step-details-two
+
+
+
+
+
+
+
+
+
+
+-- component multistep-three:
+step-list-three list step-lists-three:
+
+-- ftd.column:
+width: fill-container
+align-content: center
+padding-horizontal.px if { ftd.device == "mobile" }: 20
+
+-- ftd.row:
+width: fill-container
+wrap: true
+margin-top.px: 30
+align-content: center
+spacing.fixed.px: 100
+
+-- step-details-three: $obj.title
+$loop$: $multistep-three.step-lists-three as $obj
+image: $obj.image
+number: $obj.number
+right: $obj.right
+
+$obj.body
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: multistep-three
+
+
+
+
+
+
+
+
+
+
+-- component step-details-three:
+optional caption title:
+optional body body:
+ftd.image-src image:
+optional string number:
+boolean $hover: false
+boolean right: false
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.desktop:
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 100
+align-content: center
+
+-- ftd.image:
+if: { !step-details-three.right }
+src: $step-details-three.image
+width.fixed.px: 615
+height.fixed.px: 526
+border-radius.px: 300
+
+-- ftd.column:
+width.fixed.px: 618
+spacing.fixed.px: 44
+
+-- ftd.row:
+spacing.fixed.px: 14
+border-width.px: 1
+border-radius.px: 30
+border-color: $inherited.colors.accent.primary
+align-content: center
+padding-right.px: 20
+
+-- ftd.text: $step-details-three.number
+role: $inherited.types.copy-large
+color: $inherited.colors.text-strong
+background.solid: $inherited.colors.accent.primary
+border-radius.px: 29
+text-align: center
+padding-vertical.px: 8
+width.fixed.px: 76
+height.fixed.px: 50
+
+-- ftd.text: $step-details-three.title
+if: {step-details-three.title != NULL}
+role: $inherited.types.copy-large
+color: $inherited.colors.text-strong
+style: bold
+
+-- end: ftd.row
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$step-details-three.body
+
+-- end: ftd.column
+
+-- ftd.image:
+if: { step-details-three.right }
+src: $step-details-three.image
+width.fixed.px: 615
+height.fixed.px: 526
+border-radius.px: 300
+
+-- end: ftd.row
+
+-- end: ftd.desktop
+
+-- ftd.mobile:
+
+-- ftd.column:
+width: fill-container
+spacing.fixed.px: 32
+
+-- ftd.image:
+if: { !step-details-three.right }
+src: $step-details-three.image
+width: fill-container
+height.fixed.px: 320
+border-radius.px: 300
+
+-- ftd.row:
+spacing.fixed.px: 14
+border-width.px: 1
+border-radius.px: 30
+border-color: $inherited.colors.accent.primary
+align-content: center
+padding-right.px: 20
+
+-- ftd.text: $step-details-three.number
+role: $inherited.types.copy-large
+color: $inherited.colors.text-strong
+background.solid: $inherited.colors.accent.primary
+border-radius.px: 29
+text-align: center
+padding-vertical.px: 8
+width.fixed.px: 76
+height.fixed.px: 50
+
+-- ftd.text: $step-details-three.title
+if: {step-details-three.title != NULL}
+role: $inherited.types.copy-large
+color: $inherited.colors.text-strong
+style: bold
+
+-- end: ftd.row
+
+-- ftd.text:
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+$step-details-three.body
+
+-- ftd.image:
+if: { step-details-three.right }
+src: $step-details-three.image
+width: fill-container
+height.fixed.px: 320
+border-radius.px: 300
+
+-- end: ftd.column
+
+-- end: ftd.mobile
+
+-- end: ftd.column
+
+-- end: step-details-three
+
+
+
+
+
+
+
+
+-- record number:
+optional caption title:
+optional body body:
+ftd.image-src image:
+optional string number:
+
+-- number list numbers:
+
+-- number:
+image: $assets.files.assets.card1.png
+number: 1
+
+I design and develop services for customers of all sizes, specializing 
+in creating stylish, modern websites.
+
+-- number:
+image: $assets.files.assets.card2.png
+number: 2
+
+I design and develop services for customers of all sizes, specializing 
+in creating stylish, modern websites.
+
+-- number:
+image: $assets.files.assets.card1.png
+number: 3
+
+I design and develop services for customers of all sizes, specializing 
+in creating stylish, modern websites.
+
+-- end: numbers
+
+
+
+
+
+-- record step-list:
+optional caption title:
+optional body body:
+ftd.image-src image:
+optional string number:
+
+-- step-list list step-lists:
+
+-- step-list: Lorem
+image: $assets.files.assets.card4.png
+number: 1
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- step-list: Lorem
+image: $assets.files.assets.card3.png
+number: 2
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- step-list: Lorem
+image: $assets.files.assets.card4.png
+number: 3
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- end: step-lists
+
+
+
+
+
+
+
+
+-- record step-list-three:
+optional caption title:
+optional body body:
+ftd.image-src image:
+optional string number:
+boolean right: false
+
+-- step-list-three list step-lists-three:
+
+-- step-list-three: Lorem
+image: $assets.files.assets.card5.png
+number: 1
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- step-list-three: Lorem
+image: $assets.files.assets.card5.png
+number: 2
+right: true
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- step-list-three: Lorem
+image: $assets.files.assets.card5.png
+number: 3
+
+Design your drop of 1-5 NFTs and send us your artwork. We get that you're
+creative, so take note: Sweet supports image, audio and video media assets.
+Make your NFT drop interesting, engaging and fun.
+
+-- end: step-lists-three
