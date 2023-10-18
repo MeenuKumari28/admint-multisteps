@@ -875,7 +875,10 @@ body.dark  .__c-395:visited { color: #FFFFFF !important; }
 body.mobile .__rl-396 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 18px; font-weight: 400; line-height: 28px; }
 .__w-397 { width: 100%; }
 .__g-398 { gap: 24px; }
-.__c-399 { color: #5290EC !important; }
+.__c-399 { color: #333333 !important; }
+body.dark .__c-399 { color: #FFFFFF !important; }
+.__c-399:visited { color: #333333 !important; }
+body.dark  .__c-399:visited { color: #FFFFFF !important; }
 .__rl-400 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 24px; font-weight: 700; line-height: 31px; }
 body.mobile .__rl-400 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 22px; font-weight: 700; line-height: 29px; }
 .__c-401 { color: #707070 !important; }
@@ -908,7 +911,10 @@ body.dark  .__c-418:visited { color: #FFFFFF !important; }
 body.mobile .__rl-419 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 18px; font-weight: 400; line-height: 28px; }
 .__w-420 { width: 100%; }
 .__g-421 { gap: 24px; }
-.__c-422 { color: #5290EC !important; }
+.__c-422 { color: #333333 !important; }
+body.dark .__c-422 { color: #FFFFFF !important; }
+.__c-422:visited { color: #333333 !important; }
+body.dark  .__c-422:visited { color: #FFFFFF !important; }
 .__rl-423 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 24px; font-weight: 700; line-height: 31px; }
 body.mobile .__rl-423 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 22px; font-weight: 700; line-height: 29px; }
 .__c-424 { color: #707070 !important; }
@@ -941,7 +947,10 @@ body.dark  .__c-441:visited { color: #FFFFFF !important; }
 body.mobile .__rl-442 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 18px; font-weight: 400; line-height: 28px; }
 .__w-443 { width: 100%; }
 .__g-444 { gap: 24px; }
-.__c-445 { color: #5290EC !important; }
+.__c-445 { color: #333333 !important; }
+body.dark .__c-445 { color: #FFFFFF !important; }
+.__c-445:visited { color: #333333 !important; }
+body.dark  .__c-445:visited { color: #FFFFFF !important; }
 .__rl-446 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 24px; font-weight: 700; line-height: 31px; }
 body.mobile .__rl-446 {  font-family: fastn-community-github-io-lato-font-Lato; letter-spacing: 0px; font-size: 22px; font-weight: 700; line-height: 29px; }
 .__c-447 { color: #707070 !important; }
@@ -9383,18 +9392,7 @@ return (fastn_utils.getter(__args__.title) !== null);
 let rooti0 = fastn_dom.createKernel(root, fastn_dom.ElementKind.Text);
 rooti0.setProperty(fastn_dom.PropertyKind.StringValue, __args__.title, inherited);
 rooti0.setProperty(fastn_dom.PropertyKind.MarginTop, fastn_dom.Length.Px(22), inherited);
-rooti0.setProperty(fastn_dom.PropertyKind.Color, fastn.formula([inherited.get("colors").get("text_strong"),
-inherited.get("colors").get("info").get("text"),
-__args__.hover], function () {
-if (function () {
-return fastn_utils.getter(__args__.hover);
-}()) {
-return inherited.get("colors").get("info").get("text");
-} else {
-return inherited.get("colors").get("text_strong");
-}
-}
-), inherited);
+rooti0.setProperty(fastn_dom.PropertyKind.Color, inherited.get("colors").get("text_strong"), inherited);
 rooti0.setProperty(fastn_dom.PropertyKind.Role, fastn.formula([inherited.get("types").get("copy_large"),
 inherited.get("types").get("copy_regular"),
 ftd.device], function () {
@@ -10053,7 +10051,7 @@ rooti0.setProperty(fastn_dom.PropertyKind.Spacing, fastn_dom.Spacing.Fixed(fastn
 rooti0.setProperty(fastn_dom.PropertyKind.Children, fastn.mutableList([function (root, inherited) {
 let rooti0 = fastn_dom.createKernel(root, fastn_dom.ElementKind.Text);
 rooti0.setProperty(fastn_dom.PropertyKind.StringValue, __args__.title, inherited);
-rooti0.setProperty(fastn_dom.PropertyKind.Color, inherited.get("colors").get("info").get("text"), inherited);
+rooti0.setProperty(fastn_dom.PropertyKind.Color, inherited.get("colors").get("text_strong"), inherited);
 rooti0.setProperty(fastn_dom.PropertyKind.Role, inherited.get("types").get("heading_small"), inherited);
 },
 function (root, inherited) {
@@ -10114,7 +10112,7 @@ rooti0.setProperty(fastn_dom.PropertyKind.Spacing, fastn_dom.Spacing.Fixed(fastn
 rooti0.setProperty(fastn_dom.PropertyKind.Children, fastn.mutableList([function (root, inherited) {
 let rooti0 = fastn_dom.createKernel(root, fastn_dom.ElementKind.Text);
 rooti0.setProperty(fastn_dom.PropertyKind.StringValue, __args__.title, inherited);
-rooti0.setProperty(fastn_dom.PropertyKind.Color, inherited.get("colors").get("info").get("text"), inherited);
+rooti0.setProperty(fastn_dom.PropertyKind.Color, inherited.get("colors").get("text_strong"), inherited);
 rooti0.setProperty(fastn_dom.PropertyKind.Role, inherited.get("types").get("heading_small"), inherited);
 },
 function (root, inherited) {
