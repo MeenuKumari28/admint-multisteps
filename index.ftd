@@ -133,16 +133,15 @@ $step-details.body
 
 -- ftd.column:
 anchor: parent
-width: fill-container
-bottom.px: -21
-bottom.px if { ftd.device == "mobile" }: -11
+bottom.px: 16
+bottom.px if { ftd.device == "mobile" }: 20
 right.px: 0
 align-content: right
 
 -- ftd.text: $step-details.number
-role: $inherited.types.heading-hero
+role: $heading-hero
 color: $inherited.colors.text
-opacity: 0.1
+opacity: 0.4
 
 -- end: ftd.column
 
@@ -222,16 +221,15 @@ height.fixed.px: 415
 
 -- ftd.column:
 width.fixed.px: 537
+spacing.fixed.px: 64
+
+-- ftd.row:
+spacing.fixed.px: 44
 
 -- ftd.text: $step-details-two.number
-role: $inherited.types.heading-hero
+role: $heading-hero
 color: $inherited.colors.text
 opacity: 0.1
-
--- ftd.column:
-spacing.fixed.px: 64
-align-content: center
-margin-top.px: -28
 
 -- ftd.text: $step-details-two.title
 if: {step-details-two.title != NULL}
@@ -239,13 +237,13 @@ role: $inherited.types.heading-large
 color: $inherited.colors.text-strong
 style: bold
 
+-- end: ftd.row
+
 -- ftd.text:
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
 $step-details-two.body
-
--- end: ftd.column
 
 -- end: ftd.column
 
@@ -257,21 +255,21 @@ $step-details-two.body
 
 -- ftd.column:
 width: fill-container
+spacing.fixed.px: 24
 
 -- ftd.image:
 src: $step-details-two.image
 width: fill-container
 height.fixed.px: 324
 
+-- ftd.row:
+spacing.fixed.px: 24
+align-content: center
+
 -- ftd.text: $step-details-two.number
 role: $inherited.types.heading-hero
 color: $inherited.colors.text
-opacity: 0.1
-
--- ftd.column:
-spacing.fixed.px: 44
-align-content: center
-margin-top.px: -28
+opacity: 0.3
 
 -- ftd.text: $step-details-two.title
 if: {step-details-two.title != NULL}
@@ -279,13 +277,13 @@ role: $inherited.types.heading-large
 color: $inherited.colors.text-strong
 style: bold
 
+-- end: ftd.row
+
 -- ftd.text:
 role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
 $step-details-two.body
-
--- end: ftd.column
 
 -- end: ftd.column
 
@@ -366,6 +364,8 @@ src: $step-details-three.image
 width.fixed.px: 615
 height.fixed.px: 526
 border-radius.px: 300
+border-width.px: 1
+border-color: $inherited.colors.border
 
 -- ftd.column:
 width.fixed.px: 618
@@ -411,6 +411,8 @@ src: $step-details-three.image
 width.fixed.px: 615
 height.fixed.px: 526
 border-radius.px: 300
+border-width.px: 1
+border-color: $inherited.colors.border
 
 -- end: ftd.row
 
@@ -423,11 +425,12 @@ width: fill-container
 spacing.fixed.px: 32
 
 -- ftd.image:
-if: { !step-details-three.right }
 src: $step-details-three.image
 width: fill-container
 height.fixed.px: 320
 border-radius.px: 300
+border-width.px: 1
+border-color: $inherited.colors.border
 
 -- ftd.row:
 spacing.fixed.px: 14
@@ -460,13 +463,6 @@ role: $inherited.types.copy-regular
 color: $inherited.colors.text
 
 $step-details-three.body
-
--- ftd.image:
-if: { step-details-three.right }
-src: $step-details-three.image
-width: fill-container
-height.fixed.px: 320
-border-radius.px: 300
 
 -- end: ftd.column
 
@@ -531,7 +527,6 @@ optional caption title:
 optional body body:
 ftd.image-src image:
 optional string number:
-boolean $hover: false
 
 -- ftd.column:
 width: fill-container
@@ -541,19 +536,14 @@ width: fill-container
 -- ftd.row:
 width.fixed.px: 1042
 spacing.fixed.px: 12
-$on-mouse-enter$: $ftd.set-bool($a = $step-details-four.hover, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $step-details-four.hover, v = false)
 
 -- ftd.column:
 height.fixed.px: 40
 width.fixed.px: 60
 border-radius.percent: 100
-border-width.px: 1
-border-color: $inherited.colors.accent.primary
-background.solid if { step-details-four.hover }: $inherited.colors.accent.primary
+background.solid: $inherited.colors.accent.primary
 margin-left.px: -22
 align-content: center
-background.solid: #ffffff
 
 -- ftd.text: $step-details-four.number
 role: $inherited.types.copy-large
@@ -582,6 +572,8 @@ src: $step-details-four.image
 width.fixed.px: 350
 height.fixed.px: 226
 border-radius.px: 30
+border-width.px: 1
+border-color: $inherited.colors.border
 
 -- end: ftd.row
 
@@ -592,19 +584,14 @@ border-radius.px: 30
 -- ftd.row:
 width: fill-container
 spacing.fixed.px: 12
-$on-mouse-enter$: $ftd.set-bool($a = $step-details-four.hover, v = true)
-$on-mouse-leave$: $ftd.set-bool($a = $step-details-four.hover, v = false)
 
 -- ftd.column:
 height.fixed.px: 40
 width.fixed.px: 46
 border-radius.percent: 100
-border-width.px: 1
-border-color: $inherited.colors.accent.primary
-background.solid if { step-details-four.hover }: $inherited.colors.accent.primary
+background.solid: $inherited.colors.accent.primary
 margin-left.px: -22
 align-content: center
-background.solid: #ffffff
 
 -- ftd.text: $step-details-four.number
 role: $inherited.types.copy-large
@@ -630,6 +617,8 @@ $step-details-four.body
 src: $step-details-four.image
 width: fill-container
 border-radius.px: 30
+border-width.px: 1
+border-color: $inherited.colors.border
 
 -- end: ftd.column
 
@@ -939,25 +928,25 @@ shadow: $sl
 border-radius.px: 18
 
 -- ftd.column:
-anchor: parent
+background.solid: $inherited.colors.accent.secondary
+spacing.fixed.px: 12
+padding.px: 24
+
+-- ftd.row:
+spacing.fixed.px: 8
+align-content: center
 
 -- ftd.text: $step-details-seven.number
 role: $inherited.types.heading-hero
 color: $inherited.colors.text
-opacity: 0.2
-
--- end: ftd.column
-
--- ftd.column:
-background.solid: $inherited.colors.accent.secondary
-spacing.fixed.px: 12
-padding.px: 24
 
 -- ftd.text: $step-details-seven.title
 if: {step-details-seven.title != NULL}
 role: $inherited.types.heading-medium
 color: $inherited.colors.text-strong
 style: bold
+
+-- end: ftd.row
 
 -- ftd.image:
 src: $step-details-seven.image
@@ -987,27 +976,25 @@ shadow: $sl
 border-radius.px: 18
 
 -- ftd.column:
-anchor: parent
-top.px: 28
-left.px: 20
+background.solid: $inherited.colors.accent.secondary
+spacing.fixed.px: 12
+padding.px: 24
+
+-- ftd.row:
+spacing.fixed.px: 8
+align-content: center
 
 -- ftd.text: $step-details-seven.number
 role: $inherited.types.heading-hero
 color: $inherited.colors.text
-opacity: 0.2
-
--- end: ftd.column
-
--- ftd.column:
-background.solid: $inherited.colors.accent.secondary
-spacing.fixed.px: 12
-padding.px: 24
 
 -- ftd.text: $step-details-seven.title
 if: {step-details-seven.title != NULL}
 role: $inherited.types.heading-medium
 color: $inherited.colors.text-strong
 style: bold
+
+-- end: ftd.row
 
 -- ftd.image:
 src: $step-details-seven.image
@@ -1483,3 +1470,28 @@ x-offset.px: 0
 y-offset.px: 0 
 blur.px: 20
 spread.px: 2
+
+
+
+
+
+
+
+
+
+
+-- ftd.type heading-hero-mobile:
+line-height.px: 50
+size.px: 134
+letter-spacing.px: 0
+weight: 700
+
+-- ftd.type heading-hero-desktop:
+line-height.px: 82
+size.px: 164
+letter-spacing.px: 0
+weight: 700
+
+-- ftd.responsive-type heading-hero:
+desktop: $heading-hero-desktop
+mobile: $heading-hero-mobile
