@@ -132,13 +132,14 @@ $step-details.body
 
 -- ftd.column:
 anchor: parent
-bottom.px: 16
-bottom.px if { ftd.device == "mobile" }: 20
+bottom.px: -20
+bottom.px if { ftd.device == "mobile" }: -12
+right.px if { ftd.device == "mobile" }: 10
 right.px: 0
 align-content: right
 
 -- ftd.text: $step-details.number
-role: $heading-hero
+role: $inherited.types.heading-hero
 color: $inherited.colors.text
 opacity: 0.4
 
@@ -224,11 +225,12 @@ spacing.fixed.px: 64
 
 -- ftd.row:
 spacing.fixed.px: 44
+align-content: center
 
 -- ftd.text: $step-details-two.number
-role: $heading-hero
+role: $inherited.types.heading-hero
 color: $inherited.colors.text
-opacity: 0.1
+opacity: 0.3
 
 -- ftd.text: $step-details-two.title
 if: {step-details-two.title != NULL}
@@ -1469,28 +1471,3 @@ x-offset.px: 0
 y-offset.px: 0 
 blur.px: 20
 spread.px: 2
-
-
-
-
-
-
-
-
-
-
--- ftd.type heading-hero-mobile:
-line-height.px: 50
-size.px: 134
-letter-spacing.px: 0
-weight: 700
-
--- ftd.type heading-hero-desktop:
-line-height.px: 82
-size.px: 164
-letter-spacing.px: 0
-weight: 700
-
--- ftd.responsive-type heading-hero:
-desktop: $heading-hero-desktop
-mobile: $heading-hero-mobile
