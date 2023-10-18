@@ -119,7 +119,6 @@ if: {step-details.title != NULL}
 role: $inherited.types.copy-large
 role if { ftd.device == "mobile" }: $inherited.types.copy-regular
 color: $inherited.colors.text-strong
-color if { step-details.hover }: $inherited.colors.info.text
 style: bold
 margin-top.px: 22
 
@@ -557,7 +556,7 @@ spacing.fixed.px: 24
 
 -- ftd.text: $step-details-four.title
 role: $inherited.types.heading-small
-color: $inherited.colors.info.text
+color: $inherited.colors.text-strong
 
 -- ftd.text:
 role: $inherited.types.copy-regular
@@ -605,7 +604,7 @@ spacing.fixed.px: 24
 
 -- ftd.text: $step-details-four.title
 role: $inherited.types.heading-small
-color: $inherited.colors.info.text
+color: $inherited.colors.text-strong
 
 -- ftd.text:
 role: $inherited.types.copy-regular
